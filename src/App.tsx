@@ -21,6 +21,7 @@ import { useLocation, useNavigate } from "react-router";
 import QueryString from "qs";
 import { z } from "zod";
 import { makeJsonEncoder, makeJsonDecoder } from "@urlpack/json";
+import CloseIcon from "@mui/icons-material/Close";
 
 const StartButton = styled(Button)<ButtonProps>(({ theme }) => ({
   marginTop: "20px",
@@ -137,9 +138,6 @@ function App() {
             onStopSpinning={() => {
               setMustSpin(false);
               setIsResultShow(true);
-              setTimeout(() => {
-                setIsResultShow(false);
-              }, 1500);
             }}
           ></Wheel>
           <StartButton
@@ -257,6 +255,20 @@ function App() {
           setIsResultShow(false);
         }}
       >
+        <IconButton
+          aria-label="close"
+          onClick={() => {
+            setIsResultShow(false);
+          }}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
         <DialogContent
           style={{
             display: "flex",

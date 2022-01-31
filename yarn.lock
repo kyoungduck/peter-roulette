@@ -12662,44 +12662,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"name-roulette@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "name-roulette@workspace:."
-  dependencies:
-    "@emotion/react": ^11.7.1
-    "@emotion/styled": ^11.6.0
-    "@mui/icons-material": ^5.3.1
-    "@mui/material": ^5.3.1
-    "@testing-library/jest-dom": ^5.16.1
-    "@testing-library/react": ^12.1.2
-    "@testing-library/user-event": ^13.5.0
-    "@types/jest": ^27.4.0
-    "@types/node": ^16.11.21
-    "@types/qs": ^6.9.7
-    "@types/react": ^17.0.38
-    "@types/react-dom": ^17.0.11
-    "@types/testing-library__jest-dom": ^5.14.2
-    "@urlpack/json": ^1.0.4
-    eslint-config-react-app: ^7.0.0
-    jest-dom: ^4.0.0
-    qs: ^6.10.3
-    react: ^17.0.2
-    react-custom-roulette: ^1.1.8
-    react-dom: ^17.0.2
-    react-router: ^6.2.1
-    react-router-dom: ^6.2.1
-    react-scripts: 5.0.0
-    typescript: ^4.5.5
-    web-vitals: ^2.1.4
-    zod: ^3.11.6
-  dependenciesMeta:
-    "@urlpack/json@1.0.4":
-      unplugged: true
-    eslint-config-react-app@7.0.0:
-      unplugged: true
-  languageName: unknown
-  linkType: soft
-
 "nan@npm:^2.12.1":
   version: 2.15.0
   resolution: "nan@npm:2.15.0"
@@ -13617,6 +13579,44 @@ __metadata:
   checksum: 534e641aa8f7cba160f0afec0599b6cecefbb516a2e837b512be0adbe6c1da5550e89c78059c7fabc5c9ffdf6627edabe23eb7c518c4500067a898fa65c2b550
   languageName: node
   linkType: hard
+
+"peter-roulette@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "peter-roulette@workspace:."
+  dependencies:
+    "@emotion/react": ^11.7.1
+    "@emotion/styled": ^11.6.0
+    "@mui/icons-material": ^5.3.1
+    "@mui/material": ^5.3.1
+    "@testing-library/jest-dom": ^5.16.1
+    "@testing-library/react": ^12.1.2
+    "@testing-library/user-event": ^13.5.0
+    "@types/jest": ^27.4.0
+    "@types/node": ^16.11.21
+    "@types/qs": ^6.9.7
+    "@types/react": ^17.0.38
+    "@types/react-dom": ^17.0.11
+    "@types/testing-library__jest-dom": ^5.14.2
+    "@urlpack/json": ^1.0.4
+    eslint-config-react-app: ^7.0.0
+    jest-dom: ^4.0.0
+    qs: ^6.10.3
+    react: ^17.0.2
+    react-custom-roulette: ^1.1.8
+    react-dom: ^17.0.2
+    react-router: ^6.2.1
+    react-router-dom: ^6.2.1
+    react-scripts: 5.0.0
+    typescript: ^4.5.5
+    web-vitals: ^2.1.4
+    zod: ^3.11.6
+  dependenciesMeta:
+    "@urlpack/json@1.0.4":
+      unplugged: true
+    eslint-config-react-app@7.0.0:
+      unplugged: true
+  languageName: unknown
+  linkType: soft
 
 "picocolors@npm:^0.2.1":
   version: 0.2.1

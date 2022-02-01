@@ -12,5 +12,19 @@
 @media (max-width: 800px) {
   .roulette-layout {
     flex-direction: column;
+    align-items: center;
+  }
+}
+
+.menu-layout {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 350px;
+}
+
+@media (max-width: 800px) {
+  .menu-layout {
+    width: 100%;
   }
 }

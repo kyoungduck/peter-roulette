@@ -1,20 +1,21 @@
 import {
+  Alert,
   Box,
   Button,
   ButtonProps,
   Chip,
-  Dialog,
-  DialogContent,
   IconButton,
   List,
   ListItem,
   ListItemText,
   Modal,
+  Slide,
+  Snackbar,
   styled,
   TextField,
 } from "@mui/material";
 import { blue, green, purple, red } from "@mui/material/colors";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Wheel } from "react-custom-roulette";
 import { WheelData } from "react-custom-roulette/dist/components/Wheel/types";
 import "./App.css";
@@ -24,6 +25,10 @@ import QueryString from "qs";
 import { z } from "zod";
 import { makeJsonEncoder, makeJsonDecoder } from "@urlpack/json";
 import CloseIcon from "@mui/icons-material/Close";
+import LinkIcon from "@mui/icons-material/Link";
+import axios from "axios";
+import { config } from "./config";
+import to from "await-to-js";
 
 const StartButton = styled(Button)<ButtonProps>(({ theme }) => ({
   marginTop: "20px",
@@ -46,6 +51,18 @@ const InitButton = styled(Button)<ButtonProps>(({ theme }) => ({
   "&:hover": {
     backgroundColor: "#fff",
     color: blue[500],
+  },
+}));
+
+const ShareButton = styled(Button)<ButtonProps>(({ theme }) => ({
+  width: "100%",
+  height: "45px",
+  fontSize: 20,
+  color: theme.palette.getContrastText(red[500]),
+  backgroundColor: red[500],
+  "&:hover": {
+    backgroundColor: "#fff",
+    color: red[500],
   },
 }));
 
@@ -76,6 +93,12 @@ const wheelDatasZod = z.union([
   z.array(z.string()),
 ]);
 
+const shortenUrlResponseZod = z.object({
+  data: z.object({
+    shortUrl: z.string(),
+  }),
+});
+
 const jsonEncoder = makeJsonEncoder();
 const jsonDecoder = makeJsonDecoder();
 
@@ -86,6 +109,11 @@ function App() {
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [addValueState, setAddValueState] = useState("");
   const [data, setData] = useState<WheelData[]>([]);
+  const addInputText = useRef<any>(null);
+  const [noti, setNoti] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
 
   const [isResultShow, setIsResultShow] = useState<boolean>(false);
 
@@ -120,8 +148,12 @@ function App() {
     setMustSpin(true);
   };
 
+  const getEncodedData = (newData: WheelData[]) => {
+    return jsonEncoder.encode(newData.map((data) => data.option));
+  };
+
   const refreshQueryString = (newData: WheelData[]) => {
-    const encodeString = jsonEncoder.encode(newData.map((data) => data.option));
+    const encodeString = getEncodedData(newData);
     if (encodeString.length > 2000) {
       alert("너무 많은 데이터");
       return;
@@ -139,6 +171,57 @@ function App() {
     setPrizeNumber(0);
   };
 
+  const handlerSharedButton = () => {
+    const asyncHandler = async () => {
+      const origin = window.location.origin;
+      const encodeString = getEncodedData(data);
+      if (encodeString.length > 2000) {
+        alert("너무 많은 데이터");
+        return;
+      }
+
+      const [err, resp] = await to(
+        axios.post(config.shortenUrlWorkerUrl, {
+          url: `${origin}/?data=${encodeString}`,
+        })
+      );
+
+      const parsed = shortenUrlResponseZod.safeParse(resp?.data);
+
+      const copyURL = parsed.success
+        ? parsed.data.data.shortUrl
+        : window.location.href;
+
+      if (navigator.share as any) {
+        await navigator.share({
+          title: document.title,
+          text: `${data
+            .map((_data) => _data.option)
+            .join(",")
+            .substring(0, 10)}... 룰렛`,
+          url: copyURL,
+        });
+
+        return;
+      } else if (navigator.clipboard) {
+        const [copyErr] = await to(navigator.clipboard.writeText(copyURL));
+        if (copyErr) {
+          setNoti({
+            type: "error",
+            message: "복사 실패, URL을 직접 복사하세요",
+          });
+        }
+
+        setNoti({
+          type: "success",
+          message: "복사 성공",
+        });
+      }
+    };
+
+    asyncHandler();
+  };
+
   const addData = () => {
     if (mustSpin || addValueState.length < 1) return;
 
@@ -151,6 +234,8 @@ function App() {
     setData(newData);
     setAddValueState("");
     refreshQueryString(newData);
+
+    addInputText.current?.focus();
   };
 
   return (
@@ -202,13 +287,29 @@ function App() {
               flexDirection: "column",
             }}
           >
-            <span
+            <div
+              style={{
+                width: "100%",
+              }}
+            >
+              <ShareButton onClick={handlerSharedButton}>
+                <LinkIcon
+                  style={{
+                    position: "absolute",
+                    left: 10,
+                  }}
+                />{" "}
+                공유하기
+              </ShareButton>
+            </div>
+            <div style={{ height: "10px" }}></div>
+            <div
               style={{
                 width: "100%",
               }}
             >
               <InitButton onClick={handleInitButton}>초기화</InitButton>
-            </span>
+            </div>
           </div>
           <div
             style={{
@@ -217,6 +318,7 @@ function App() {
             }}
           >
             <TextField
+              inputRef={addInputText}
               id="add-text"
               label="항목 추가"
               variant="standard"
@@ -326,6 +428,18 @@ function App() {
           </span>
         </Box>
       </Modal>
+
+      <Snackbar
+        open={!!noti}
+        onClose={() => {
+          setNoti(null);
+        }}
+        autoHideDuration={3000}
+      >
+        <Alert severity={noti?.type} variant="filled" sx={{ width: "100%" }}>
+          {noti?.message}
+        </Alert>
+      </Snackbar>
     </>
   );
 }

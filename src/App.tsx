@@ -210,6 +210,7 @@ function App() {
             type: "error",
             message: "복사 실패, URL을 직접 복사하세요",
           });
+          return;
         }
 
         setNoti({

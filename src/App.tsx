@@ -264,6 +264,7 @@ function App() {
               setMustSpin(false);
               setIsResultShow(true);
             }}
+            spinDuration={0.5}
           ></Wheel>
           <StartButton
             variant="outlined"

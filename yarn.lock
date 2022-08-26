@@ -13620,7 +13620,7 @@ __metadata:
     jest-dom: ^4.0.0
     qs: ^6.10.3
     react: ^17.0.2
-    react-custom-roulette: ^1.1.8
+    react-custom-roulette: ^1.2.0
     react-dom: ^17.0.2
     react-router: ^6.2.1
     react-router-dom: ^6.2.1
@@ -15712,9 +15712,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-custom-roulette@npm:^1.1.8":
-  version: 1.1.8
-  resolution: "react-custom-roulette@npm:1.1.8"
+"react-custom-roulette@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "react-custom-roulette@npm:1.2.0"
   dependencies:
     "@types/jest": ^25.2.3
     "@types/node": ^14.0.9
@@ -15724,7 +15724,7 @@ __metadata:
   peerDependencies:
     react: ^16.13.1
     react-dom: ^16.13.1
-  checksum: 497448953f7c8ee0204758985deb79c57529a633224442f31a144776be300fa55368bed81cb31a88a688ba534d0a20eccfe6d230d691e5f93290a2c180277723
+  checksum: 7eaabb5093a4b314dd4d8de8f9d1f04aabfbc4b2ac4a8dbecb8e2e83b469e47ad4537030ce2711ffa681c1c072aac9037db34c8fa364f719264cbb963447af9f
   languageName: node
   linkType: hard
 

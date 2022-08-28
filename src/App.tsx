@@ -143,7 +143,12 @@ function App() {
     if (mustSpin || data.length < 2) {
       return;
     }
-    const newPrizeNumber = Math.floor(Math.random() * data.length);
+
+    const arr = new Uint32Array(1);
+    window.crypto.getRandomValues(arr)
+
+    const newPrizeNumber = arr[0] % data.length;
+
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
   };

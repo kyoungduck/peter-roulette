@@ -144,7 +144,11 @@ function App() {
       return;
     }
 
-    const newPrizeNumber = Math.floor(mathRandom() * data.length);
+    const arr = new Uint32Array(1);
+    window.crypto.getRandomValues(arr);
+
+    const newPrizeNumber = arr[0] % data.length;
+
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
   };

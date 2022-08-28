@@ -9,7 +9,6 @@ import {
   ListItem,
   ListItemText,
   Modal,
-  Slide,
   Snackbar,
   styled,
   TextField,
@@ -29,6 +28,7 @@ import LinkIcon from "@mui/icons-material/Link";
 import axios from "axios";
 import { config } from "./config";
 import to from "await-to-js";
+import mathRandom from "math-random";
 
 const StartButton = styled(Button)<ButtonProps>(({ theme }) => ({
   marginTop: "20px",
@@ -143,7 +143,8 @@ function App() {
     if (mustSpin || data.length < 2) {
       return;
     }
-    const newPrizeNumber = Math.floor(Math.random() * data.length);
+
+    const newPrizeNumber = Math.floor(mathRandom() * data.length);
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
   };

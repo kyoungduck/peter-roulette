@@ -42,7 +42,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:12.1.2"],\
             ["@testing-library/user-event", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:13.5.0"],\
             ["@types/jest", "npm:27.4.0"],\
-            ["@types/math-random", "npm:1.0.0"],\
             ["@types/node", "npm:16.11.21"],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:17.0.38"],\
@@ -54,7 +53,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.23.0"],\
             ["eslint-config-react-app", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:7.0.1"],\
             ["jest-dom", "npm:4.0.0"],\
-            ["math-random", "npm:2.0.1"],\
             ["qs", "npm:6.10.3"],\
             ["react", "npm:17.0.2"],\
             ["react-custom-roulette", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:1.2.0"],\
@@ -4465,15 +4463,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-json5-npm-0.0.29-f63a7916bd-e60b153664.zip/node_modules/@types/json5/",\
           "packageDependencies": [\
             ["@types/json5", "npm:0.0.29"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@types/math-random", [\
-        ["npm:1.0.0", {\
-          "packageLocation": "./.yarn/cache/@types-math-random-npm-1.0.0-6e2c5376da-a92325a4e4.zip/node_modules/@types/math-random/",\
-          "packageDependencies": [\
-            ["@types/math-random", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -11573,15 +11562,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["math-random", [\
-        ["npm:2.0.1", {\
-          "packageLocation": "./.yarn/cache/math-random-npm-2.0.1-12bb6c9d16-3e7744d4ee.zip/node_modules/math-random/",\
-          "packageDependencies": [\
-            ["math-random", "npm:2.0.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["mdn-data", [\
         ["npm:2.0.14", {\
           "packageLocation": "./.yarn/cache/mdn-data-npm-2.0.14-0acd669f0d-9d0128ed42.zip/node_modules/mdn-data/",\
@@ -12541,7 +12521,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:12.1.2"],\
             ["@testing-library/user-event", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:13.5.0"],\
             ["@types/jest", "npm:27.4.0"],\
-            ["@types/math-random", "npm:1.0.0"],\
             ["@types/node", "npm:16.11.21"],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:17.0.38"],\
@@ -12553,7 +12532,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.23.0"],\
             ["eslint-config-react-app", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:7.0.1"],\
             ["jest-dom", "npm:4.0.0"],\
-            ["math-random", "npm:2.0.1"],\
             ["qs", "npm:6.10.3"],\
             ["react", "npm:17.0.2"],\
             ["react-custom-roulette", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:1.2.0"],\

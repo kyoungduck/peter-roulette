@@ -2782,13 +2782,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/math-random@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@types/math-random@npm:1.0.0"
-  checksum: a92325a4e475c134871f69acd699bdc53260abdaae4a936536a5f79b178f07a3b9ebcb1a9ab831ce864d6ad5fd4ee829c7ad488c2b505c6e088b1686aa291b2a
-  languageName: node
-  linkType: hard
-
 "@types/mime@npm:^1":
   version: 1.3.2
   resolution: "@types/mime@npm:1.3.2"
@@ -8418,13 +8411,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"math-random@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "math-random@npm:2.0.1"
-  checksum: 3e7744d4eed395fc2e5469d67d08242d1f03a9cc3326d2bfaf1f4ec83251be7bb3debcba78f58977d17d45b02dfaa68fd5b9e92f2d95e1f895e470482459cd36
-  languageName: node
-  linkType: hard
-
 "mdn-data@npm:2.0.14":
   version: 2.0.14
   resolution: "mdn-data@npm:2.0.14"
@@ -9275,7 +9261,6 @@ __metadata:
     "@testing-library/react": ^12.1.2
     "@testing-library/user-event": ^13.5.0
     "@types/jest": ^27.4.0
-    "@types/math-random": ^1.0.0
     "@types/node": ^16.11.21
     "@types/qs": ^6.9.7
     "@types/react": ^17.0.38
@@ -9287,7 +9272,6 @@ __metadata:
     eslint: ^8.23.0
     eslint-config-react-app: ^7.0.0
     jest-dom: ^4.0.0
-    math-random: ^2.0.1
     qs: ^6.10.3
     react: ^17.0.2
     react-custom-roulette: ^1.2.0

@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@emotion/react", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:11.7.1"],
             ["@emotion/styled", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:11.6.0"],
+            ["@karrotmini/sdk", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:0.9.0"],
             ["@mui/icons-material", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:5.3.1"],
             ["@mui/material", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:5.3.1"],
             ["@testing-library/jest-dom", "npm:5.16.1"],
@@ -62,6 +63,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:6.2.1"],
             ["react-router-dom", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:6.2.1"],
             ["react-scripts", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:5.0.0"],
+            ["ts-pattern", "npm:4.0.5"],
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=493e53"],
             ["web-vitals", "npm:2.1.4"],
             ["zod", "npm:3.11.6"]
@@ -3827,6 +3829,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:17.0.13"],
             ["@types/yargs", "npm:16.0.4"],
             ["chalk", "npm:4.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@karrotmini/sdk", [
+        ["npm:0.9.0", {
+          "packageLocation": "./.yarn/cache/@karrotmini-sdk-npm-0.9.0-c3166ecf97-e51903f7d0.zip/node_modules/@karrotmini/sdk/",
+          "packageDependencies": [
+            ["@karrotmini/sdk", "npm:0.9.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:0.9.0", {
+          "packageLocation": "./.yarn/__virtual__/@karrotmini-sdk-virtual-818677c1e7/0/cache/@karrotmini-sdk-npm-0.9.0-c3166ecf97-e51903f7d0.zip/node_modules/@karrotmini/sdk/",
+          "packageDependencies": [
+            ["@karrotmini/sdk", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:0.9.0"],
+            ["@types/react", "npm:17.0.38"]
+          ],
+          "packagePeers": [
+            "@types/react"
           ],
           "linkType": "HARD",
         }]
@@ -17455,6 +17477,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["peter-roulette", "workspace:."],
             ["@emotion/react", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:11.7.1"],
             ["@emotion/styled", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:11.6.0"],
+            ["@karrotmini/sdk", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:0.9.0"],
             ["@mui/icons-material", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:5.3.1"],
             ["@mui/material", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:5.3.1"],
             ["@testing-library/jest-dom", "npm:5.16.1"],
@@ -17480,6 +17503,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:6.2.1"],
             ["react-router-dom", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:6.2.1"],
             ["react-scripts", "virtual:6e6e32e814950d4bf90a1d4922960a6241df25cd673f028c447a72555f53eb0c0c54a3960b105ef6fa1f25530b547321e682074bc6c0164aca8f31fc008efb58#npm:5.0.0"],
+            ["ts-pattern", "npm:4.0.5"],
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=493e53"],
             ["web-vitals", "npm:2.1.4"],
             ["zod", "npm:3.11.6"]
@@ -23388,6 +23412,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/tryer-npm-1.0.1-f48ab9ec32-1cf14d7f67.zip/node_modules/tryer/",
           "packageDependencies": [
             ["tryer", "npm:1.0.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["ts-pattern", [
+        ["npm:4.0.5", {
+          "packageLocation": "./.yarn/cache/ts-pattern-npm-4.0.5-7ba0b14201-b1ecf36afb.zip/node_modules/ts-pattern/",
+          "packageDependencies": [
+            ["ts-pattern", "npm:4.0.5"]
           ],
           "linkType": "HARD",
         }]

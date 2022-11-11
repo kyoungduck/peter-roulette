@@ -2243,6 +2243,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@karrotmini/sdk@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "@karrotmini/sdk@npm:0.9.0"
+  peerDependencies:
+    "@types/react": ">=16.8.0"
+  checksum: e51903f7d0151e84eab21ff985413df98b6748237ca2080fb4e33249f86f62b92ab4ffd82acd4d73ba3d24ddce4954243c1f03959836725ee340c0e98254215e
+  languageName: node
+  linkType: hard
+
 "@mui/base@npm:5.0.0-alpha.66":
   version: 5.0.0-alpha.66
   resolution: "@mui/base@npm:5.0.0-alpha.66"
@@ -13616,6 +13625,7 @@ __metadata:
   dependencies:
     "@emotion/react": ^11.7.1
     "@emotion/styled": ^11.6.0
+    "@karrotmini/sdk": ^0.9.0
     "@mui/icons-material": ^5.3.1
     "@mui/material": ^5.3.1
     "@testing-library/jest-dom": ^5.16.1
@@ -13641,6 +13651,7 @@ __metadata:
     react-router: ^6.2.1
     react-router-dom: ^6.2.1
     react-scripts: 5.0.0
+    ts-pattern: ^4.0.5
     typescript: ^4.5.5
     web-vitals: ^2.1.4
     zod: ^3.11.6
@@ -18321,6 +18332,13 @@ __metadata:
   version: 1.0.1
   resolution: "tryer@npm:1.0.1"
   checksum: 1cf14d7f67c79613f054b569bfc9a89c7020d331573a812dfcf7437244e8f8e6eb6893b210cbd9cc217f67c1d72617f89793df231e4fe7d53634ed91cf3a89d1
+  languageName: node
+  linkType: hard
+
+"ts-pattern@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "ts-pattern@npm:4.0.5"
+  checksum: b1ecf36afb567ee6adbaee6e885e51775b1a390ed528589ae3bcb1e376412ed0774b54495ffca7be2a324e75268f894d34379b84388930485cf1359b30d5bc8b
   languageName: node
   linkType: hard
 

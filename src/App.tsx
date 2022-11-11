@@ -13,7 +13,7 @@ import {
   styled,
   TextField,
 } from "@mui/material";
-import { blue, green, purple, red } from "@mui/material/colors";
+import { blue, green, orange, purple, red } from "@mui/material/colors";
 import React, { useEffect, useRef, useState } from "react";
 import { Wheel } from "react-custom-roulette";
 import { WheelData } from "react-custom-roulette/dist/components/Wheel/types";
@@ -29,6 +29,9 @@ import axios from "axios";
 import { config } from "./config";
 import to from "await-to-js";
 import mathRandom from "math-random";
+import "@karrotmini/sdk/index.css";
+import { karrotmini, KarrotUser } from "@karrotmini/sdk";
+import { match } from "ts-pattern";
 
 const StartButton = styled(Button)<ButtonProps>(({ theme }) => ({
   marginTop: "20px",
@@ -63,6 +66,18 @@ const ShareButton = styled(Button)<ButtonProps>(({ theme }) => ({
   "&:hover": {
     backgroundColor: "#fff",
     color: red[500],
+  },
+}));
+
+const KarrotLoginButton = styled(Button)<ButtonProps>(({ theme }) => ({
+  width: "100%",
+  height: "45px",
+  fontSize: 20,
+  color: theme.palette.getContrastText(red[500]),
+  backgroundColor: orange[500],
+  "&:hover": {
+    backgroundColor: "#fff",
+    color: orange[500],
   },
 }));
 
@@ -116,6 +131,14 @@ function App() {
   } | null>(null);
 
   const [isResultShow, setIsResultShow] = useState<boolean>(false);
+  const [karrotUser, setKarrotUser] = useState<KarrotUser | null>(null);
+
+  useEffect(() => {
+    const loadSdk = async () => {
+      await karrotmini.ready();
+    };
+    loadSdk();
+  });
 
   useEffect(() => {
     const search = QueryString.parse(location.search, {
@@ -174,51 +197,72 @@ function App() {
 
   const handlerSharedButton = () => {
     const asyncHandler = async () => {
-      const origin = window.location.origin;
-      const encodeString = getEncodedData(data);
-      if (encodeString.length > 2000) {
-        alert("너무 많은 데이터");
-        return;
-      }
+      karrotmini.pay({
+        amount: 100,
+        description: "100원을 결제합니다.",
+        onSuccess: ({ transactionId }) => {
+          console.log(transactionId);
+        },
+        onPrepared: ({ transactionId, stop }) => {
+          console.log(transactionId);
+        },
+        onFailure: ({ reason }) => {
+          match(reason)
+            .with({ _t: "APPROVE_NETWORK_FAILED" }, () => {
+              alert("네트워크 에러");
+            })
+            .otherwise(({ _t }) => {
+              alert(`${_t} 결제 에러`);
+            });
+        },
+        onClose: async () => {
+          const origin = window.location.origin;
+          const encodeString = getEncodedData(data);
+          if (encodeString.length > 2000) {
+            alert("너무 많은 데이터");
+            return;
+          }
 
-      const [err, resp] = await to(
-        axios.post(config.shortenUrlWorkerUrl, {
-          url: `${origin}/?data=${encodeString}`,
-        })
-      );
+          const [err, resp] = await to(
+            axios.post(config.shortenUrlWorkerUrl, {
+              url: `${origin}/?data=${encodeString}`,
+            })
+          );
 
-      const parsed = shortenUrlResponseZod.safeParse(resp?.data);
+          const parsed = shortenUrlResponseZod.safeParse(resp?.data);
 
-      const copyURL = parsed.success
-        ? parsed.data.data.shortUrl
-        : window.location.href;
+          const copyURL = parsed.success
+            ? parsed.data.data.shortUrl
+            : window.location.href;
 
-      if (navigator.share as any) {
-        await navigator.share({
-          title: document.title,
-          text: `${data
-            .map((_data) => _data.option)
-            .join(",")
-            .substring(0, 10)}... 룰렛`,
-          url: copyURL,
-        });
+          if (navigator.share as any) {
+            await navigator.share({
+              title: document.title,
+              text: `${data
+                .map((_data) => _data.option)
+                .join(",")
+                .substring(0, 10)}... 룰렛`,
+              url: copyURL,
+            });
 
-        return;
-      } else if (navigator.clipboard) {
-        const [copyErr] = await to(navigator.clipboard.writeText(copyURL));
-        if (copyErr) {
-          setNoti({
-            type: "error",
-            message: "복사 실패, URL을 직접 복사하세요",
-          });
-          return;
-        }
+            return;
+          } else if (navigator.clipboard) {
+            const [copyErr] = await to(navigator.clipboard.writeText(copyURL));
+            if (copyErr) {
+              setNoti({
+                type: "error",
+                message: "복사 실패, URL을 직접 복사하세요",
+              });
+              return;
+            }
 
-        setNoti({
-          type: "success",
-          message: "복사 성공",
-        });
-      }
+            setNoti({
+              type: "success",
+              message: "복사 성공",
+            });
+          }
+        },
+      });
     };
 
     asyncHandler();
@@ -238,6 +282,18 @@ function App() {
     refreshQueryString(newData);
 
     addInputText.current?.focus();
+  };
+
+  const handleKarrotLoginButton = () => {
+    const login = async () => {
+      const result = await karrotmini.requestUserConsent({
+        scopes: ["account/profile"],
+      });
+
+      setKarrotUser(result.karrotUser);
+    };
+
+    login();
   };
 
   return (
@@ -295,6 +351,8 @@ function App() {
                 width: "100%",
               }}
             >
+              <div style={{ height: "50px" }}></div>
+
               <ShareButton onClick={handlerSharedButton}>
                 <LinkIcon
                   style={{
@@ -312,6 +370,22 @@ function App() {
               }}
             >
               <InitButton onClick={handleInitButton}>초기화</InitButton>
+            </div>
+            <div style={{ height: "10px" }}></div>
+            <div
+              style={{
+                width: "100%",
+              }}
+            >
+              {karrotUser === null ? (
+                <>
+                  <KarrotLoginButton onClick={handleKarrotLoginButton}>
+                    당근로그인
+                  </KarrotLoginButton>
+                </>
+              ) : (
+                <>{karrotUser.nickname} 님 환영합니다</>
+              )}
             </div>
           </div>
           <div

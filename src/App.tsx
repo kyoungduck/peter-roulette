@@ -28,7 +28,6 @@ import LinkIcon from "@mui/icons-material/Link";
 import axios from "axios";
 import { config } from "./config";
 import to from "await-to-js";
-import mathRandom from "math-random";
 
 const StartButton = styled(Button)<ButtonProps>(({ theme }) => ({
   marginTop: "20px",
@@ -144,7 +143,11 @@ function App() {
       return;
     }
 
-    const newPrizeNumber = Math.floor(mathRandom() * data.length);
+    const arr = new Uint32Array(1);
+    window.crypto.getRandomValues(arr);
+
+    const newPrizeNumber = arr[0] % data.length;
+
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
   };

@@ -17,7 +17,6 @@
     "@urlpack/json": "^1.0.4",
     "await-to-js": "^3.0.0",
     "axios": "^0.25.0",
-    "math-random": "^2.0.1",
     "qs": "^6.10.3",
     "react": "^17.0.2",
     "react-custom-roulette": "^1.2.0",
@@ -30,7 +29,9 @@
     "zod": "^3.11.6"
   },
   "resolutions": {
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "webpack": "^5",
+    "react-scripts": "^5"
   },
   "scripts": {
     "start": "GENERATE_SOURCEMAP=false react-scripts start",
@@ -56,11 +57,12 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@3.1.1",
+  "packageManager": "yarn@3.2.3",
   "devDependencies": {
-    "@types/math-random": "^1.0.0",
+    "@testing-library/dom": "^8.17.1",
     "@types/qs": "^6.9.7",
     "@types/testing-library__jest-dom": "^5.14.2",
+    "eslint": "^8.23.0",
     "eslint-config-react-app": "^7.0.0",
     "jest-dom": "^4.0.0"
   },

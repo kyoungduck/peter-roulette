@@ -382,7 +382,10 @@ function App() {
                         marginRight: "5px",
                       }}
                     />
-                    <ListItemText primary={_data.option} />
+                    <ListItemText
+                      primary={_data.option}
+                      primaryTypographyProps={{ fontSize: "20px" }}
+                    />
                   </ListItem>
                 );
               })}
@@ -404,8 +407,8 @@ function App() {
             textAlign: "center",
             flexDirection: "column",
             backgroundColor: "white",
-            width: "40%",
-            height: "35%",
+            width: "45%",
+            height: "40%",
             maxWidth: "100vw",
             maxHeight: "100%",
             position: "fixed",
@@ -429,7 +432,7 @@ function App() {
           >
             <CloseIcon />
           </IconButton>
-          <span style={{ fontSize: "40px" }}>
+          <span style={{ fontSize: "60px" }}>
             {data[prizeNumber] ? data[prizeNumber].option : ""}
           </span>
         </Box>
